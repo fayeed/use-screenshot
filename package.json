@@ -21,7 +21,9 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "html-to-image": "^0.1.1"
+  },
   "peerDependencies": {
     "react": "^16.9.0"
   },

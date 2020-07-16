@@ -1,23 +1,38 @@
-import * as React from 'react';
+import { useState, useCallback } from "react";
+import { toPng, OptionsType, toJpeg } from "html-to-image";
+import { UseScreenshotProps, ImgType } from "./types";
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
+export const useScreenshot = (options?: UseScreenshotProps) => {
+  const { ref } = options || {};
+  const [image, setImage] = useState<string>();
+  const [isLoading, setLoading] = useState(false);
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+  const takeScreenshot = useCallback(
+    async (type?: ImgType, options?: OptionsType) => {
+      setLoading(true);
 
-  return counter;
+      try {
+        let image: string;
+
+        const body = document.getElementById("root")!;
+
+        if (type === "jpg") {
+          image = await toJpeg(ref?.current || body, options);
+        } else {
+          image = await toPng(ref?.current || body, options);
+        }
+
+        setImage(image);
+      } catch (e) {
+        console.error(e);
+      }
+
+      setLoading(false);
+    },
+    []
+  );
+
+  const clear = useCallback(() => setImage(undefined), []);
+
+  return { image, takeScreenshot, isLoading, clear };
 };
