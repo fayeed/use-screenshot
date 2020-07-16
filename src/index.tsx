@@ -37,3 +37,5 @@ export const useScreenshot = (options?: UseScreenshotProps) => {
 
   return { image, takeScreenshot, isLoading, clear };
 };
+
+export default useScreenshot;
