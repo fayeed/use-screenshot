@@ -1,5 +1,388 @@
-/* body {
+body,
+* {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-} */
+}
+
+h1 {
+  font-size: 48px;
+  margin-right: 36px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+code {
+  padding: 4px 8px;
+  color: white;
+  font-size: 14px;
+  font-family: monospace;
+  border-radius: 4px;
+  background-color: grey;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 100px;
+}
+
+.row > svg {
+  cursor: pointer;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.imageContainer {
+  border: 1px solid crimson;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imageContainer > svg {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  font-size: 24px;
+  width: 200px;
+  padding: 20px 0;
+  border-radius: 8px;
+  border: none;
+  background-color: #e8505b;
+  filter: drop-shadow(0px 12px 24px #e8505b);
+  color: white;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin-bottom: 80px;
+}
+
+.btn-small {
+  width: 100px;
+  font-size: 16px;
+  padding: 10px 0;
+  margin-top: 40px;
+}
+
+.btn:hover {
+  filter: drop-shadow(0px 18px 36px #eb3844);
+  transform: translateY(-10px);
+}
+
+.btn:hover {
+  filter: drop-shadow(0px 18px 36px #eb3844);
+  transform: translateY(-2px);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-unlock {
+  background-color: #facb4a;
+  filter: drop-shadow(0px 12px 24px #facb4a);
+}
+
+.btn-unlock:hover {
+  filter: drop-shadow(0px 18px 36px #fcc737);
+  transform: translateY(-10px);
+}
+
+textarea {
+  width: 400px;
+  border-radius: 4px;
+  padding: 10px;
+  border: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.base {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: -8px;
+  background-color: #f5e3b3;
+}
+
+.book1 {
+  position: relative;
+  height: 30px;
+  width: 140px;
+  background: #fffff0;
+  border-radius: 10px;
+  border: 5px solid #942343;
+}
+.ribbon1 {
+  display: inline-block;
+  position: relative;
+  top: 15px;
+  left: 10px;
+  margin: 0;
+  padding: 2px 0;
+  z-index: 2;
+  width: 20px;
+  text-align: center;
+  background: #ff785b;
+}
+.ribbon1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border-left: 10px solid #ff785b;
+  border-right: 10px solid #ff785b;
+  border-bottom: 10px solid transparent;
+}
+.book1-r {
+  position: absolute;
+  height: 40px;
+  width: 10px;
+  background: #a0d8ef;
+  right: -5px;
+  bottom: -5px;
+}
+.book1-r:before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 5px;
+  background: #a0d8ef;
+  top: 5px;
+  right: 10px;
+}
+
+.book2 {
+  position: relative;
+  height: 40px;
+  width: 120px;
+  background: #a688bd;
+  right: 5px;
+}
+.book2:before,
+.book2:after {
+  content: "";
+  position: absolute;
+}
+.book2:before {
+  height: 40px;
+  width: 60px;
+  left: 10px;
+  border-left: 20px double #fff;
+  border-right: 20px double #fff;
+}
+.book2:after {
+  height: 20px;
+  width: 30px;
+  background: #fff;
+  top: 10px;
+  left: 45px;
+}
+
+.book3 {
+  position: relative;
+  height: 30px;
+  width: 140px;
+  background: #fffff0;
+  border-radius: 10px;
+  border: 5px solid #004d25;
+}
+.ribbon3 {
+  display: inline-block;
+  position: relative;
+  top: 15px;
+  left: 100px;
+  margin: 0;
+  padding: 2px 0;
+  z-index: 2;
+  width: 20px;
+  text-align: center;
+  background: #a4d5bd;
+}
+.ribbon3:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border-left: 10px solid #a4d5bd;
+  border-right: 10px solid #a4d5bd;
+  border-bottom: 10px solid transparent;
+}
+.book3-l {
+  position: absolute;
+  height: 40px;
+  width: 10px;
+  background: #a0d8ef;
+  left: -5px;
+  bottom: -5px;
+}
+.book3-l:before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 5px;
+  background: #a0d8ef;
+  top: 5px;
+  left: 10px;
+}
+
+.book4 {
+  position: relative;
+  height: 35px;
+  width: 160px;
+  background: #ed6d35;
+  right: 5px;
+}
+.book4:before,
+.book4:after {
+  content: "";
+  position: absolute;
+}
+.book4:before {
+  height: 35px;
+  width: 100px;
+  left: 10px;
+  border-left: 20px double #fff;
+  border-right: 20px double #fff;
+}
+.book4:after {
+  height: 20px;
+  width: 40px;
+  background: #fff;
+  top: 8px;
+  left: 60px;
+}
+
+.book5 {
+  position: relative;
+  height: 35px;
+  width: 150px;
+  background: #0073a8;
+  right: 5px;
+}
+.book5:before,
+.book5:after {
+  content: "";
+  position: absolute;
+}
+.book5:before {
+  height: 35px;
+  width: 90px;
+  left: 10px;
+  border-left: 20px double #fff;
+  border-right: 20px double #fff;
+}
+
+.book6 {
+  position: relative;
+  height: 30px;
+  width: 170px;
+  background: #fffff0;
+  border-radius: 10px;
+  border: 5px solid #622d18;
+  right: 10px;
+}
+.ribbon6 {
+  display: inline-block;
+  position: relative;
+  top: 15px;
+  left: 100px;
+  margin: 0;
+  padding: 2px 0;
+  z-index: 2;
+  width: 20px;
+  text-align: center;
+  background: #a4d5bd;
+}
+.ribbon6:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border-left: 10px solid #a4d5bd;
+  border-right: 10px solid #a4d5bd;
+  border-bottom: 10px solid transparent;
+}
+.book6-l {
+  position: absolute;
+  height: 40px;
+  width: 10px;
+  background: #a0d8ef;
+  left: -5px;
+  bottom: -5px;
+}
+.book6-l:before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 5px;
+  background: #a0d8ef;
+  top: 5px;
+  left: 10px;
+}
+
+.book7 {
+  position: relative;
+  height: 40px;
+  width: 200px;
+  background: #fcc800;
+  right: 5px;
+}
+.book7:before,
+.book7:after {
+  content: "";
+  position: absolute;
+}
+.book7:before {
+  height: 40px;
+  width: 100px;
+  left: 10px;
+  border-left: 20px double #fff;
+}
+.book7:after {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #fff;
+  top: 10px;
+  left: 170px;
+}
