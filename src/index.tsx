@@ -14,6 +14,7 @@ export const useScreenshot = (options?: UseScreenshotProps) => {
       try {
         let image: string;
 
+        // using body tag causes a wierd bug
         const body = document.getElementById("root")!;
 
         if (type === "jpg") {
