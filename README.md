@@ -48,7 +48,7 @@ const Example = () => {
 #### `UseScreenshotReturnType`
 
 - `isLoading` - Indicates if the screenshot is loading this is useful for some webpages that are big and have lots of content to render.
-- `takeScreenshot: (types: ImgType, options: OptionsType)` - A function to take screenshot.
+- `takeScreenshot: (types: ImgType, options: OptionsType): string | undefined` - A function to take screenshot.
 - `image` - Contains the dataUrl for the image.
 - `clear()` - Clear the image from the memory.
 

@@ -10,25 +10,25 @@ export const useScreenshot = (options?: UseScreenshotProps) => {
   const takeScreenshot = useCallback(
     async (type?: ImgType, options?: OptionsType) => {
       setLoading(true);
+      let tempImage: string | undefined;
 
       try {
-        let image: string;
-
-        // using body tag causes a wierd bug
         const body = document.getElementById("root")!;
 
         if (type === "jpg") {
-          image = await toJpeg(ref?.current || body, options);
+          tempImage = await toJpeg(ref?.current || body, options);
         } else {
-          image = await toPng(ref?.current || body, options);
+          tempImage = await toPng(ref?.current || body, options);
         }
 
-        setImage(image);
+        setImage(tempImage);
       } catch (e) {
         console.error(e);
-      }
+      } finally {
+        setLoading(false);
 
-      setLoading(false);
+        return tempImage;
+      }
     },
     []
   );
