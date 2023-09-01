@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
-import { toPng, OptionsType, toJpeg } from "html-to-image";
+import { toPng, toJpeg } from "html-to-image";
 import { UseScreenshotProps, ImgType } from "./types";
+import { Options } from "html-to-image/lib/types";
 
 export const useScreenshot = (options?: UseScreenshotProps) => {
   const { ref } = options || {};
@@ -8,7 +9,7 @@ export const useScreenshot = (options?: UseScreenshotProps) => {
   const [isLoading, setLoading] = useState(false);
 
   const takeScreenshot = useCallback(
-    async (type?: ImgType, options?: OptionsType) => {
+    async (type?: ImgType, options?: Options) => {
       setLoading(true);
       let tempImage: string | undefined;
 
