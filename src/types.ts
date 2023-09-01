@@ -1,5 +1,5 @@
 import { MutableRefObject } from "react";
-import { OptionsType } from "html-to-image";
+import { Options } from "html-to-image/lib/types";
 
 export type ImgType = "jpg" | "png";
 
@@ -29,7 +29,7 @@ export interface UseScreenshotReturnType {
    * @param types: format for the image, rither jpeg or png.
    * @param options: Options to control the behaviour [OptionsType]
    */
-  takeScreenshot: (types: ImgType, options: OptionsType) => void;
+  takeScreenshot: (types: ImgType, options: Options) => void;
 
   /**
    * Clear the image from the memory.
